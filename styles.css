@@ -1,0 +1,30 @@
+*{
+    font-family: 'Raleway', sans-serif;;
+}
+:root{
+    --main-grey: #303030
+    --main-dark: black
+    --main-white: white
+}
+header{
+    background: linear-gradient(180deg, rgba(0,0,0,1) 73%, rgba(113,113,113,0.48792016806722693) 100%);
+}
+.custom-margin-img{
+    padding-top: 80px;
+
+}
+.custom-h1{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 90px;
+}
+.min-height{
+    min-height: 10rem;
+}
+.height-custom{
+    height: 1220px;
+
+}
+.navbar-custom{
+    transition: 0,8s;
+}
