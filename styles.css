@@ -27,12 +27,17 @@ header{
 }
 .navbar-custom{
     transition: 0,8s;
+    background-color: black;
 }
 .custom-border{
+    border-left: 2px solid rgb(52, 42, 42);
     border-right: 2px solid rgb(52, 42, 42);
 }
-.custom-border1{
-    border-left: 2px solid rgb(52, 42, 42);
+.red-custom{
+    color: red;
+}
+.custom-overflow{
+    overflow-x: hidden;
 }
 /* css button  */
 /* CSS */
@@ -73,4 +78,27 @@ header{
 }
 .custom-img{
     height: 12rem;
+}
+.custom-margin{
+    margin-top: 10rem;
+    padding-left: 2rem;
+}
+.custom-border-filter{
+    border-bottom: 3px solid black;
+}
+.card-custom{
+    border: 2px solid black;
+    cursor: pointer;
+}
+.card-custom:hover{
+    background-color:#827f7f;
+    color: white;
+    animation-name: flip;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction:alternate 
+}
+@keyframes flip {
+        25%{transform: scale(1.05);
+    }
 }
