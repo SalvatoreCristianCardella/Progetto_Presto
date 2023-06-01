@@ -68,21 +68,67 @@ fetch('./annunci.json')
         //console.log(check);
         let filtered = data.filter((element)=>element.category==check.id)
         //console.log(filtered);
-        showcards(filtered)
+        if(check.id != 'all'){
+            return filtered
+        } else {
+            return data
+        }
 
     }
     inputs.forEach((input)=>{
         input.addEventListener('click', ()=>{
-            filterByCategory()
+            globalFunction()
         })
     })
 
+let FiltraPerPrice = document.querySelector('#FiltraPerPrice')
+let ValueByRange = document.querySelector('#ValueByRange')
+
+
+ function MaximPrice(){
+    let price = data.map((element) => +element.price)
+    let maxPrice = Math.ceil(Math.max(...price))
+    let minPrice = Math.min(...price)
+    FiltraPerPrice.max = maxPrice
+    FiltraPerPrice.min = minPrice
+    FiltraPerPrice.value = maxPrice
+ }
+
+
+ function FilterByPrice(array){
+    let filtered = array.filter(element => +element.price <= +FiltraPerPrice.value)
+    ValueByRange.innerHTML=`${FiltraPerPrice.value}`
+    return filtered
+ }
+
+ FiltraPerPrice.addEventListener('input', () => {
+    globalFunction()
+ })
+
+ MaximPrice()
+
+let inputSearch = document.querySelector('#inputSearch')
+let SearchBtn = document.querySelector('#SearchBtn')
+
+
+SearchBtn.addEventListener('click', () => {
+    globalFunction()
+})
 
 
 
+function FilterBySearch(array){
+    let inputValue = inputSearch.value
+    let filtered = array.filter((element) => +element.name.toLowerCase().includes(inputValue.toLowerCase()) ) 
+    return filtered
+ }
 
-
-
+ function globalFunction () {
+  let filteredByCategory = filterByCategory(data)
+  let FilteredByPrice = FilterByPrice(filteredByCategory)
+  let FilteredBySearch = FilterBySearch(FilteredByPrice)
+  showcards(FilteredBySearch)
+ }
 
 
     AOS.init()
