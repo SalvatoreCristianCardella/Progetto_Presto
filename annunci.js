@@ -11,11 +11,9 @@ fetch('./annunci.json')
 .then((Response) => Response.json())
 .then((data)=>{
     let cardwrapper = document.querySelector('#cardswrapper')
-    let confirm = true
-    function showcards(check) {
+    function showcards(array) {
         cardwrapper.innerHTML=''
-        data.forEach((element)=>{
-            if (element.category==check || check == 'all'|| confirm == true) {
+        array.forEach((element)=>{
             let div = document.createElement('div')
             div.classList.add('col','m-3')
             div.innerHTML=`<div class="card card-custom" style="width: 18rem;">
@@ -29,9 +27,8 @@ fetch('./annunci.json')
             </div>
             </div>
           </div>`
-          cardwrapper.appendChild(div)}
+          cardwrapper.appendChild(div)
         });
-        confirm=false
         let iconHearts= document.querySelectorAll('.fa-heart')
         iconHearts.forEach((iconHeart)=>{
             iconHeart.addEventListener('click',()=>{
@@ -40,7 +37,7 @@ fetch('./annunci.json')
             })
         })
     }
-    showcards()
+    showcards(data)
   
     let categoryswrapper = document.querySelector('#categoryswrapper')
 //    funzione che serve per prendere le singole categorie dell array-like data
@@ -68,7 +65,10 @@ fetch('./annunci.json')
     function filterByCategory() {
         let InputsBtn = Array.from(inputs)
         let check = InputsBtn.find((element)=>element.checked)
-        showcards(check.id);
+        //console.log(check);
+        let filtered = data.filter((element)=>element.category==check.id)
+        //console.log(filtered);
+        showcards(filtered)
 
     }
     inputs.forEach((input)=>{
