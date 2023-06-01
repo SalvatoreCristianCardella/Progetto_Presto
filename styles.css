@@ -22,12 +22,12 @@ header{
     min-height: 6rem;
 }
 .height-custom{
-    height: 1220px;
+    height: 30px;
 
 }
 .navbar-custom{
     transition: 0,8s;
-    background-color: black;
+    background-color: transparent;
 }
 .custom-border{
     border-left: 2px solid rgb(52, 42, 42);
@@ -234,3 +234,91 @@ header{
       font-size:24px;
     }
   }
+
+
+
+
+
+/* FOOTER WAVE */
+  footer div {
+    background-color:linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+    margin: -5px 0px 0px 0px;
+    padding:0px;
+    color: #fff;
+    text-align:center;
+  }
+  svg {
+    width:100%;
+  }
+  .topball {
+    animation: ball 1.5s ease-in-out;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+    animation-delay: 0.3s;
+    cursor:pointer;
+  }
+  
+  .wavee {
+    animation: wave 3s linear;
+    animation-iteration-count:infinite;
+    fill: #4478e3;
+  }
+  .drop {
+    fill: transparent;
+    animation: drop 5s ease infinite normal;
+    stroke: #4478e3;
+    stroke-width:0.5;
+    opacity:.6; 
+    transform: translateY(80%);
+  }
+  .drop1 {
+    transform-origin: 20px 3px;
+  }
+  .drop2 {
+    animation-delay: 3s;
+    animation-duration:3s;
+    transform-origin: 25px 3px;
+  }
+  .drop3 {
+    animation-delay: -2s;
+    animation-duration:3.4s;
+    transform-origin: 16px 3px;
+  }
+  .gooeff {
+        filter: url(#goo);
+  }
+  #wave2 {
+    animation-duration:5s;
+    animation-direction: reverse;
+    opacity: .6
+  }
+  #wave3 {
+    animation-duration: 7s;
+    opacity:.3;
+  }
+  @keyframes drop {
+    0% {
+      transform: translateY(80%); 
+      opacity:.6; 
+    }
+    80% {
+      transform: translateY(80%); 
+      opacity:.6; 
+    }
+    90% { 
+      transform: translateY(10%) ; 
+      opacity:.6; 
+    }
+    100% { 
+      transform: translateY(0%) scale(1.5);  
+      stroke-width:0.2;
+      opacity:0; 
+    }
+  }
+  @keyframes wave {
+    to {transform: translateX(-100%);}
+  }
+  @keyframes ball {
+    to {transform: translateY(20%);}
+  }
+  

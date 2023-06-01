@@ -10,7 +10,7 @@ window.addEventListener('scroll', () => {
         navbar.style.backgroundColor = '#303030';
     }
     else{
-        navbar.style.backgroundColor = `black`
+        navbar.style.backgroundColor = `trasparent`
     }
 });
 function contatore (y,a,x){
